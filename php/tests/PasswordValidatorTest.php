@@ -32,10 +32,10 @@ class PasswordValidatorTest extends TestCase
     }
 
     /** @test */
-    public function give_a_password_paSsw0__the_validator_should_fail(): void
+    public function give_a_password_Passw1__the_validator_should_fail(): void
     {
         $validator = new PasswordValidator();
 
-        self::assertFalse($validator->theMethod('paSsw0_'));
+        self::assertFalse($validator->theMethod('Passw1_'));
     }
 }
