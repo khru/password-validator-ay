@@ -15,6 +15,12 @@ use PHPUnit\Framework\TestCase;
  */
 class PasswordValidatorTest extends TestCase
 {
+    private PasswordValidator $validator;
+    protected function setUp(): void
+    {
+        $this->validator = new PasswordValidator();
+    }
+
     public static function shortPasswordProvider(): \Generator
     {
         yield ['P4sswd_'];
@@ -28,8 +34,6 @@ class PasswordValidatorTest extends TestCase
      */
     public function given_a_short_password_the_validator_should_fail($shortPassword)
     {
-        $validator = new PasswordValidator();
-
-        self::assertFalse($validator->theMethod($shortPassword));
+        self::assertFalse($this->validator->theMethod($shortPassword));
     }
 }
