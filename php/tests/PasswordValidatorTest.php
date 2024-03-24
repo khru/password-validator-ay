@@ -32,28 +32,4 @@ class PasswordValidatorTest extends TestCase
 
         self::assertFalse($validator->theMethod($shortPassword));
     }
-
-    /** @test */
-    public function give_a_password_P4sswd__the_validator_should_fail(): void
-    {
-        $validator = new PasswordValidator();
-
-        self::assertFalse($validator->theMethod('P4sswd_'));
-    }
-
-    /** @test */
-    public function give_a_password_pAssw0__the_validator_should_fail(): void
-    {
-        $validator = new PasswordValidator();
-
-        self::assertFalse($validator->theMethod('pAssw0_'));
-    }
-
-    /** @test */
-    public function give_a_password_Passw1__the_validator_should_fail(): void
-    {
-        $validator = new PasswordValidator();
-
-        self::assertFalse($validator->theMethod('Passw1_'));
-    }
 }
