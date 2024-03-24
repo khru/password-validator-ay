@@ -2,9 +2,9 @@
 
 namespace Kata;
 
-class TheClass
+class PasswordValidator
 {
-    public function theMethod(): bool
+    public function theMethod(string $password): bool
     {
         return true;
     }
