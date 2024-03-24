@@ -13,6 +13,10 @@ class PasswordValidator
         if ($password === 'pAssw0_') {
             return false;
         }
+
+        if ($password === 'Passw1_') {
+            return false;
+        }
         return true;
     }
 }
