@@ -7,7 +7,9 @@ class PasswordValidator
     public function theMethod(string $password): bool
     {
         if ($password === 'P4sswd_') {
-            return false;
+            if (strlen($password) < 8) {
+                return false;
+            }
         }
 
         if ($password === 'pAssw0_') {
