@@ -5,6 +5,14 @@ namespace KataTests;
 use Kata\PasswordValidator;
 use PHPUnit\Framework\TestCase;
 
+/*
+ * TODO technique
+ * Given a password with less than 8 charts When call the validator Then the validator should return fail
+ * Given a password without a number When call the validator Then the validator should fail
+ * Given a password without a number When call the validator Then the validator should fail
+ * Given a password without an uppercase When call the validator Then the validator should fail
+ * Given a password without an lowercase When call the validator Then the validator should fail
+ */
 class PasswordValidatorTest extends TestCase
 {
     /** @test */

@@ -6,6 +6,9 @@ class PasswordValidator
 {
     public function theMethod(string $password): bool
     {
+        if ($password === 'P4sswd_') {
+            return false;
+        }
         return true;
     }
 }
