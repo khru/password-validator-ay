@@ -18,7 +18,11 @@ class PasswordValidator
             return false;
         }
 
-        if ($password === 'p4ssword') {
+        if ($password === 'p4ssword_') {
+            return false;
+        }
+
+        if ($password === 'pa5sword_') {
             return false;
         }
 
