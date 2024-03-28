@@ -57,4 +57,10 @@ class PasswordValidatorTest extends TestCase
     {
         self::assertFalse($this->validator->theMethod('passw0rd'));
     }
+
+    /** @test */
+    public function given_a_password_like_p4ssword__then_the_validator_should_fail(): void
+    {
+        self::assertFalse($this->validator->theMethod('p4ssword'));
+    }
 }
