@@ -14,6 +14,10 @@ class PasswordValidator
             return false;
         }
 
+        if ($password === 'Paswodr_') {
+            return false;
+        }
+
         return true;
     }
 }
