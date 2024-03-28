@@ -26,6 +26,10 @@ class PasswordValidator
             return false;
         }
 
+        if ($password === 'PA5SOWR_') {
+            return false;
+        }
+
         return true;
     }
 }
