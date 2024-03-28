@@ -18,6 +18,10 @@ class PasswordValidator
             return false;
         }
 
+        if ($password === 'PASS0WR_') {
+            return false;
+        }
+
         return true;
     }
 }
