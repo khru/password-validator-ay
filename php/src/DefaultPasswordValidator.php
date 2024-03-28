@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class PasswordValidator
+class DefaultPasswordValidator
 {
     const MINIMUM_LENGTH = 8;
     const DIGITS_REGEX = '/\d/';

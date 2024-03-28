@@ -2,15 +2,15 @@
 
 namespace KataTests;
 
-use Kata\PasswordValidator;
+use Kata\DefaultPasswordValidator;
 use PHPUnit\Framework\TestCase;
 
-class PasswordValidatorTest extends TestCase
+class DefaultPasswordValidatorTest extends TestCase
 {
-    private PasswordValidator $validator;
+    private DefaultPasswordValidator $validator;
     protected function setUp(): void
     {
-        $this->validator = new PasswordValidator();
+        $this->validator = new DefaultPasswordValidator();
     }
 
     public static function shortPasswordProvider(): \Generator

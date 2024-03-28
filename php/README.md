@@ -24,14 +24,10 @@ Let's pretend that now we want to create another type of password validations be
 
 ### Validation 2:
 - [ ] Have more than 6 characters
-- [ ] Contains a capital letter
-- [ ] Contains a lowercase
 - [ ] Contains a number
 
 ### Validation 3:
 - [ ] Have more than 16 characters
-- [ ] Contains a capital letter
-- [ ] Contains a lowercase
 - [ ] Contains an underscore
 
 
