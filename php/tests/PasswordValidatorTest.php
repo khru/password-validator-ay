@@ -67,4 +67,10 @@ class PasswordValidatorTest extends TestCase
     {
         self::assertFalse($this->validator->theMethod($invalidPasswordWithoutUppercase));
     }
+
+    /** @test */
+    public function given_a_password_PASS0WR__the_validator_should_fail(): void
+    {
+        self::assertFalse($this->validator->theMethod('PASS0WR_'));
+    }
 }
