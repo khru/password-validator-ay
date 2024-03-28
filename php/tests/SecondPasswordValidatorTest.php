@@ -18,5 +18,12 @@ class SecondPasswordValidatorTest extends TestCase
         $validator = new SecondPasswordValidator();
         $this->assertFalse($validator->isValid('pa5swd'));
     }
+
+    /** @test */
+    public function given_a_password_like_pas5wd_then_the_validator_should_fail(): void
+    {
+        $validator = new SecondPasswordValidator();
+        $this->assertFalse($validator->isValid('pas5wd'));
+    }
 }
 
