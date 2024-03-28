@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  * [X] Given a password with less than 8 charts When call the validator Then the validator should return fail
  * [X] Given a password without a number When call the validator Then the validator should fail
  * [X] Given a password without an uppercase When call the validator Then the validator should fail
- * [ ] Given a password without an lowercase When call the validator Then the validator should fail
+ * [X] Given a password without an lowercase When call the validator Then the validator should fail
  */
 class PasswordValidatorTest extends TestCase
 {
@@ -68,21 +68,19 @@ class PasswordValidatorTest extends TestCase
         self::assertFalse($this->validator->theMethod($invalidPasswordWithoutUppercase));
     }
 
-    /** @test */
-    public function given_a_password_PASS0WR__the_validator_should_fail(): void
+    public static function withoutLowercaseInvalidPasswordProvider(): \Generator
     {
-        self::assertFalse($this->validator->theMethod('PASS0WR_'));
+        yield ['PA5SOWR_'];
+        yield ['P4SSOWR_'];
+        yield ['PASS0WR_'];
     }
 
-    /** @test */
-    public function given_a_password_P4SSOWR__the_validator_should_fail(): void
+    /**
+     * @dataProvider withoutLowercaseInvalidPasswordProvider
+     * @test
+     */
+    public function given_a_password_without_an_lowercase_the_validator_should_fail($invalidPasswordWithoutLowercase)
     {
-        self::assertFalse($this->validator->theMethod('P4SSOWR_'));
-    }
-
-    /** @test */
-    public function given_a_password_PA5SOWR__the_validator_should_fail(): void
-    {
-        self::assertFalse($this->validator->theMethod('PA5SOWR_'));
+        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutLowercase));
     }
 }
