@@ -83,4 +83,21 @@ class PasswordValidatorTest extends TestCase
     {
         self::assertFalse($this->validator->theMethod($invalidPasswordWithoutLowercase));
     }
+
+
+    public static function ValidPasswordProvider(): \Generator
+    {
+        yield ['P4ssword_'];
+        yield ['P45sWd_'];
+        yield ['aV4lid_P45sw0rd'];
+    }
+
+    /**
+     * @dataProvider withoutLowercaseInvalidPasswordProvider
+     * @test
+     */
+    public function given_a_valid_password_the_validator_should_validate_it($validPassword)
+    {
+        self::assertFalse($this->validator->theMethod($validPassword));
+    }
 }
