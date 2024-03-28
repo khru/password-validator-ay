@@ -3,20 +3,18 @@
 namespace Kata;
 class SecondPasswordValidator
 {
+    const MINIMUM_LENGTH = 7;
     public function isValid(string $password): bool
     {
-        if ($password === 'p4sswd') {
-            return false;
-        }
-
-        if ($password === 'pa5swd') {
-            return false;
-        }
-
-        if ($password === 'pas5wd') {
+        if ($this->doesNotHaveMinimumLength($password)) {
             return false;
         }
 
         return true;
+    }
+
+    public function doesNotHaveMinimumLength(string $password): bool
+    {
+        return strlen($password) < self::MINIMUM_LENGTH;
     }
 }
