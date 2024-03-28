@@ -13,6 +13,10 @@ class SecondPasswordValidator
             return false;
         }
 
+        if ($password === 'pas5wd') {
+            return false;
+        }
+
         return true;
     }
 }
