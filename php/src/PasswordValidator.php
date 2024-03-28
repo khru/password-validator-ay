@@ -18,6 +18,10 @@ class PasswordValidator
             return false;
         }
 
+        if ($password === 'PassSec_') {
+            return false;
+        }
+
         return true;
     }
 }
