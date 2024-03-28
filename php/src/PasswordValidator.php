@@ -18,15 +18,7 @@ class PasswordValidator
             return false;
         }
 
-        if ($password === 'PASS0WR_') {
-            return false;
-        }
-
-        if ($password === 'P4SSOWR_') {
-            return false;
-        }
-
-        if ($password === 'PA5SOWR_') {
+        if (!preg_match('/[a-z]/', $password)) {
             return false;
         }
 
