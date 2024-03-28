@@ -37,21 +37,19 @@ class PasswordValidatorTest extends TestCase
         self::assertFalse($this->validator->theMethod($shortPassword));
     }
 
-    /** @test */
-    public function given_a_password_like_Passwod__then_the_validator_should_fail(): void
+    public static function withoutNumbersInvalidPasswordProvider(): \Generator
     {
-        self::assertFalse($this->validator->theMethod('Passwod_'));
+        yield ['Passwod_'];
+        yield ['Paswodr_'];
+        yield ['PassSec_'];
     }
 
-    /** @test */
-    public function given_a_password_like_Paswodr__then_the_validator_should_fail(): void
+    /**
+     * @dataProvider withoutNumbersInvalidPasswordProvider
+     * @test
+     */
+    public function given_a_password_without_numbers_the_validator_should_fail($invalidPasswordWithoutNumbers)
     {
-        self::assertFalse($this->validator->theMethod('Paswodr_'));
-    }
-
-    /** @test */
-    public function given_a_password_like_PassSec__then_the_validator_should_fail(): void
-    {
-        self::assertFalse($this->validator->theMethod('PassSec_'));
+        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutNumbers));
     }
 }
