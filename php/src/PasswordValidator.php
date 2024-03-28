@@ -10,15 +10,7 @@ class PasswordValidator
             return false;
         }
 
-        if ($password === 'Passwod_') {
-            return false;
-        }
-
-        if ($password === 'Paswodr_') {
-            return false;
-        }
-
-        if ($password === 'PassSec_') {
+        if (!preg_match('/\d/', $password)) {
             return false;
         }
 
