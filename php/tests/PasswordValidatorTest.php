@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  * TODO technique
  * [X] Given a password with less than 8 charts When call the validator Then the validator should return fail
  * [X] Given a password without a number When call the validator Then the validator should fail
- * [ ] Given a password without an uppercase When call the validator Then the validator should fail
+ * [X] Given a password without an uppercase When call the validator Then the validator should fail
  * [ ] Given a password without an lowercase When call the validator Then the validator should fail
  */
 class PasswordValidatorTest extends TestCase
@@ -52,22 +52,19 @@ class PasswordValidatorTest extends TestCase
         self::assertFalse($this->validator->theMethod($invalidPasswordWithoutNumbers));
     }
 
-    /** @test */
-    public function given_a_password_like_passw0rd__then_the_validator_should_fail(): void
+    public static function withoutUppercaseInvalidPasswordProvider(): \Generator
     {
-        self::assertFalse($this->validator->theMethod('passw0rd'));
+        yield ['passw0rd'];
+        yield ['p4ssword_'];
+        yield ['pa5sword_'];
     }
 
-    /** @test */
-    public function given_a_password_like_p4ssword__then_the_validator_should_fail(): void
+    /**
+     * @dataProvider withoutUppercaseInvalidPasswordProvider
+     * @test
+     */
+    public function given_a_password_without_an_uppercase_the_validator_should_fail($invalidPasswordWithoutUppercase)
     {
-        self::assertFalse($this->validator->theMethod('p4ssword_'));
-    }
-
-
-    /** @test */
-    public function given_a_password_like_pa5sword__then_the_validator_should_fail(): void
-    {
-        self::assertFalse($this->validator->theMethod('pa5sword_'));
+        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutUppercase));
     }
 }
