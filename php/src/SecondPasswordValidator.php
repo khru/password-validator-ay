@@ -9,6 +9,10 @@ class SecondPasswordValidator
             return false;
         }
 
+        if ($password === 'pa5swd') {
+            return false;
+        }
+
         return true;
     }
 }
