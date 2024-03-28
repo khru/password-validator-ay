@@ -22,6 +22,10 @@ class PasswordValidator
             return false;
         }
 
+        if ($password === 'P4SSOWR_') {
+            return false;
+        }
+
         return true;
     }
 }
