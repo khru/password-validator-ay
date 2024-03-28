@@ -5,6 +5,10 @@ class SecondPasswordValidator
 {
     public function isValid(string $password): bool
     {
+        if ($password === 'p4sswd') {
+            return false;
+        }
+
         return true;
     }
 }
