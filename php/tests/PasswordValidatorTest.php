@@ -8,8 +8,7 @@ use PHPUnit\Framework\TestCase;
 /*
  * TODO technique
  * [X] Given a password with less than 8 charts When call the validator Then the validator should return fail
- * [ ] Given a password without a number When call the validator Then the validator should fail
- * [ ] Given a password without a number When call the validator Then the validator should fail
+ * [X] Given a password without a number When call the validator Then the validator should fail
  * [ ] Given a password without an uppercase When call the validator Then the validator should fail
  * [ ] Given a password without an lowercase When call the validator Then the validator should fail
  */
@@ -51,5 +50,11 @@ class PasswordValidatorTest extends TestCase
     public function given_a_password_without_numbers_the_validator_should_fail($invalidPasswordWithoutNumbers)
     {
         self::assertFalse($this->validator->theMethod($invalidPasswordWithoutNumbers));
+    }
+
+    /** @test */
+    public function given_a_password_like_passw0rd__then_the_validator_should_fail(): void
+    {
+        self::assertFalse($this->validator->theMethod('passw0rd'));
     }
 }
