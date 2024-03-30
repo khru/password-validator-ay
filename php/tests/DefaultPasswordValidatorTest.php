@@ -4,12 +4,12 @@ namespace KataTests;
 
 use Kata\PasswordFactory;
 use Kata\PasswordTypes;
-use Kata\PasswordValidator;
+use Kata\Validator;
 use PHPUnit\Framework\TestCase;
 
 class DefaultPasswordValidatorTest extends TestCase
 {
-    private PasswordValidator $validator;
+    private Validator $validator;
     protected function setUp(): void
     {
         $this->validator = PasswordFactory::create(PasswordTypes::DEFAULT);

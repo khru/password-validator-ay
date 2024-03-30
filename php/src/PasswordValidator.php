@@ -1,8 +1,30 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Kata;
-
-interface PasswordValidator
+class PasswordValidator implements Validator
 {
-    public function isValid(string $password): bool;
+    /**
+     * @var Rule[]
+     */
+    private array $validationRules;
+
+    /**
+     * @param Rule[] $rules
+     */
+    public function __construct(array $rules)
+    {
+        $this->validationRules = $rules;
+    }
+
+    public function isValid(string $password): bool
+    {
+        foreach ($this->validationRules as $validationRule) {
+            if (!$validationRule->isValid($password)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

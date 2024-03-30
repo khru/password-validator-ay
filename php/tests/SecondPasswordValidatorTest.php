@@ -3,12 +3,12 @@
 
 use Kata\PasswordFactory;
 use Kata\PasswordTypes;
-use Kata\PasswordValidator;
+use Kata\Validator;
 use PHPUnit\Framework\TestCase;
 
 class SecondPasswordValidatorTest extends TestCase
 {
-    private PasswordValidator $validator;
+    private Validator $validator;
 
     protected function setUp(): void
     {
