@@ -16,6 +16,6 @@ class PasswordValidatorBuilder
 
     public function build(): PasswordValidator
     {
-
+        throw new \InvalidArgumentException('Invalid arguments to build a new instance of password validator');
     }
 }
