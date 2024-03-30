@@ -23,7 +23,7 @@ Design and implement software that can adapt to different password validation ru
 Let's pretend that now we want to create another type of password validations because on our app we need different type of passwords, such as:
 
 ### Validation 2:
-- [ ] Have more than 6 characters
+- [X] Have more than 6 characters
 - [ ] Contains a number
 
 ### Validation 3:
