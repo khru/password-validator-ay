@@ -5,25 +5,27 @@ use PHPUnit\Framework\TestCase;
 
 class SecondPasswordValidatorTest extends TestCase
 {
-    /** @test */
-    public function given_a_password_like_p4sswd_then_the_validator_should_fail(): void
+    private SecondPasswordValidator $validator;
+
+    protected function setUp(): void
     {
-        $validator = new SecondPasswordValidator();
-        $this->assertFalse($validator->isValid('p4sswd'));
+        $this->validator = new SecondPasswordValidator();
     }
 
-    /** @test */
-    public function given_a_password_like_pa5swd_then_the_validator_should_fail(): void
+    public static function shortPasswordProvider(): \Generator
     {
-        $validator = new SecondPasswordValidator();
-        $this->assertFalse($validator->isValid('pa5swd'));
+        yield ['p4sswd'];
+        yield ['pa5swd'];
+        yield ['pas5wd'];
     }
 
-    /** @test */
-    public function given_a_password_like_pas5wd_then_the_validator_should_fail(): void
+    /**
+     * @dataProvider shortPasswordProvider
+     * @test
+     */
+    public function given_a_short_password_the_validator_should_fail($shortPassword)
     {
-        $validator = new SecondPasswordValidator();
-        $this->assertFalse($validator->isValid('pas5wd'));
+        self::assertFalse($this->validator->isValid($shortPassword));
     }
 }
 
