@@ -12,7 +12,7 @@ class DefaultPasswordValidatorTest extends TestCase
     private Validator $validator;
     protected function setUp(): void
     {
-        $this->validator = PasswordFactory::create(PasswordTypes::DEFAULT);
+        $this->validator = PasswordTypes::DEFAULT->create();
     }
 
     public static function shortPasswordProvider(): \Generator

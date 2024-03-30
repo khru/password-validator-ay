@@ -12,7 +12,7 @@ class SecondPasswordValidatorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->validator = PasswordFactory::create(PasswordTypes::SECONDARY);
+        $this->validator = PasswordTypes::SECONDARY->create();
     }
 
     public static function shortPasswordProvider(): \Generator
