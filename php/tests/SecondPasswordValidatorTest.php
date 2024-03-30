@@ -28,16 +28,19 @@ class SecondPasswordValidatorTest extends TestCase
         self::assertFalse($this->validator->isValid($shortPassword));
     }
 
-    /** @test */
-    public function given_a_password_like_password_then_the_validator_should_fail(): void
+    public static function withoutNumbersInvalidPasswordProvider(): \Generator
     {
-        self::assertFalse($this->validator->isValid('password'));
+        yield ['password'];
+        yield ['passwrd'];
     }
 
-    /** @test */
-    public function given_a_password_like_passwrd_then_the_validator_should_fail(): void
+    /**
+     * @dataProvider withoutNumbersInvalidPasswordProvider
+     * @test
+     */
+    public function given_a_password_without_numbers_the_validator_should_fail($invalidPasswordWithoutNumbers)
     {
-        self::assertFalse($this->validator->isValid('passwrd'));
+        self::assertFalse($this->validator->isValid($invalidPasswordWithoutNumbers));
     }
 }
 
