@@ -45,5 +45,21 @@ class SecondPasswordValidatorTest extends TestCase
     {
         self::assertFalse($this->validator->isValid($invalidPasswordWithoutNumbers));
     }
+
+
+    public static function validPasswordProvider(): \Generator
+    {
+        yield ['p455word'];
+        yield ['p4sswod'];
+    }
+
+    /**
+     * @dataProvider validPasswordProvider
+     * @test
+     */
+    public function given_a_valid_password_the_validator_should_validate_it($validPassword)
+    {
+        self::assertTrue($this->validator->isValid($validPassword));
+    }
 }
 
