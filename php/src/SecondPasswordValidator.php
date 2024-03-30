@@ -4,12 +4,13 @@ namespace Kata;
 class SecondPasswordValidator
 {
     const MINIMUM_LENGTH = 7;
-    const DIGITS_REGEX = '/\d/';
     private LengthRule $lengthRule;
+    private DigitsRule $digitsRule;
 
     public function __construct()
     {
         $this->lengthRule = new LengthRule(self::MINIMUM_LENGTH);
+        $this->digitsRule = new DigitsRule();
     }
 
     public function isValid(string $password): bool
@@ -18,15 +19,11 @@ class SecondPasswordValidator
             return false;
         }
 
-        if ($this->doesNotHaveDigits($password)) {
+        if ($this->digitsRule->isValid($password)) {
             return false;
         }
 
         return true;
     }
 
-    public function doesNotHaveDigits(string $password): bool
-    {
-        return !preg_match(self::DIGITS_REGEX, $password);
-    }
 }
