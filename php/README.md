@@ -26,9 +26,6 @@ Let's pretend that now we want to create another type of password validations be
 - [X] Have more than 6 characters
 - [ ] Contains a number
 
-### Validation 3:
-- [ ] Have more than 16 characters
-- [ ] Contains an underscore
 
 
 Things to practice
