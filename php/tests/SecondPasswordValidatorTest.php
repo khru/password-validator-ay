@@ -1,15 +1,18 @@
 <?php
 
-use Kata\SecondPasswordValidator;
+
+use Kata\PasswordFactory;
+use Kata\PasswordTypes;
+use Kata\PasswordValidator;
 use PHPUnit\Framework\TestCase;
 
 class SecondPasswordValidatorTest extends TestCase
 {
-    private SecondPasswordValidator $validator;
+    private PasswordValidator $validator;
 
     protected function setUp(): void
     {
-        $this->validator = new SecondPasswordValidator();
+        $this->validator = PasswordFactory::create(PasswordTypes::SECONDARY);
     }
 
     public static function shortPasswordProvider(): \Generator

@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-interface Validator
+interface PasswordValidator
 {
     public function isValid(string $password): bool;
 }
