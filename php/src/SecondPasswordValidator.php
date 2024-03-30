@@ -5,9 +5,16 @@ class SecondPasswordValidator
 {
     const MINIMUM_LENGTH = 7;
     const DIGITS_REGEX = '/\d/';
+    private LengthRule $lengthRule;
+
+    public function __construct()
+    {
+        $this->lengthRule = new LengthRule(self::MINIMUM_LENGTH);
+    }
+
     public function isValid(string $password): bool
     {
-        if ($this->doesNotHaveMinimumLength($password)) {
+        if ($this->lengthRule->isValid($password)) {
             return false;
         }
 
@@ -16,11 +23,6 @@ class SecondPasswordValidator
         }
 
         return true;
-    }
-
-    public function doesNotHaveMinimumLength(string $password): bool
-    {
-        return strlen($password) < self::MINIMUM_LENGTH;
     }
 
     public function doesNotHaveDigits(string $password): bool
