@@ -5,17 +5,25 @@ namespace Kata;
 class DefaultPasswordValidator
 {
     const MINIMUM_LENGTH = 8;
-    const DIGITS_REGEX = '/\d/';
     const UPPER_REGEX = '/[A-Z]/';
     const LOWER_REGEX = '/[a-z]/';
 
+    private LengthRule $lengthRule;
+    private DigitsRule $digitsRule;
+
+    public function __construct()
+    {
+        $this->lengthRule = new LengthRule(self::MINIMUM_LENGTH);
+        $this->digitsRule = new DigitsRule();
+    }
+
     public function isValid(string $password): bool
     {
-        if ($this->doesNotHaveMinimumLength($password)) {
+        if ($this->lengthRule->isValid($password)) {
             return false;
         }
 
-        if ($this->doesNotHaveDigits($password)) {
+        if ($this->digitsRule->isValid($password)) {
             return false;
         }
 
@@ -28,16 +36,6 @@ class DefaultPasswordValidator
         }
 
         return true;
-    }
-
-    public function doesNotHaveMinimumLength(string $password): bool
-    {
-        return strlen($password) < self::MINIMUM_LENGTH;
-    }
-
-    public function doesNotHaveDigits(string $password): bool
-    {
-        return !preg_match(self::DIGITS_REGEX, $password);
     }
 
     public function doesNotHaveUppercase(string $password): bool
