@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class DefaultPasswordValidator
+class DefaultPasswordValidator implements PasswordValidator
 {
     const MINIMUM_LENGTH = 8;
 
