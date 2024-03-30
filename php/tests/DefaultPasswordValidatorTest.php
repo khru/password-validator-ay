@@ -80,19 +80,19 @@ class DefaultPasswordValidatorTest extends TestCase
     }
 
 
-    public static function ValidPasswordProvider(): \Generator
+    public static function validPasswordProvider(): \Generator
     {
         yield ['P4ssword_'];
-        yield ['P45sWd_'];
+        yield ['P45sWod_'];
         yield ['aV4lid_P45sw0rd'];
     }
 
     /**
-     * @dataProvider withoutLowercaseInvalidPasswordProvider
+     * @dataProvider validPasswordProvider
      * @test
      */
     public function given_a_valid_password_the_validator_should_validate_it($validPassword)
     {
-        self::assertFalse($this->validator->isValid($validPassword));
+        self::assertTrue($this->validator->isValid($validPassword));
     }
 }

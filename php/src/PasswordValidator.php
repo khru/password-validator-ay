@@ -19,7 +19,7 @@ class PasswordValidator implements Validator
     public function isValid(string $password): bool
     {
         foreach ($this->validationRules as $validationRule) {
-            if (!$validationRule->isValid($password)) {
+            if ($validationRule->isValid($password)) {
                 return false;
             }
         }
