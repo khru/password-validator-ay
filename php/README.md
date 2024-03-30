@@ -24,7 +24,7 @@ Let's pretend that now we want to create another type of password validations be
 
 ### Validation 2:
 - [X] Have more than 6 characters
-- [ ] Contains a number
+- [X] Contains a number
 
 
 
