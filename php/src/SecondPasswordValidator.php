@@ -10,6 +10,10 @@ class SecondPasswordValidator
             return false;
         }
 
+        if ($password === 'password') {
+            return false;
+        }
+
         return true;
     }
 
