@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Kata;
-class SecondPasswordValidator implements PasswordValidator
+class SecondPasswordValidator implements Validator
 {
     const MINIMUM_LENGTH = 7;
     private LengthRule $lengthRule;
