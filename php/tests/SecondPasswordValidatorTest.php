@@ -33,5 +33,11 @@ class SecondPasswordValidatorTest extends TestCase
     {
         self::assertFalse($this->validator->isValid('password'));
     }
+
+    /** @test */
+    public function given_a_password_like_passwrd_then_the_validator_should_fail(): void
+    {
+        self::assertFalse($this->validator->isValid('passwrd'));
+    }
 }
 
