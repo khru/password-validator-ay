@@ -9,7 +9,7 @@ class DefaultPasswordValidator
     const UPPER_REGEX = '/[A-Z]/';
     const LOWER_REGEX = '/[a-z]/';
 
-    public function theMethod(string $password): bool
+    public function isValid(string $password): bool
     {
         if ($this->doesNotHaveMinimumLength($password)) {
             return false;

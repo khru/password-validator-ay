@@ -26,7 +26,7 @@ class DefaultPasswordValidatorTest extends TestCase
      */
     public function given_a_short_password_the_validator_should_fail($shortPassword)
     {
-        self::assertFalse($this->validator->theMethod($shortPassword));
+        self::assertFalse($this->validator->isValid($shortPassword));
     }
 
     public static function withoutNumbersInvalidPasswordProvider(): \Generator
@@ -42,7 +42,7 @@ class DefaultPasswordValidatorTest extends TestCase
      */
     public function given_a_password_without_numbers_the_validator_should_fail($invalidPasswordWithoutNumbers)
     {
-        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutNumbers));
+        self::assertFalse($this->validator->isValid($invalidPasswordWithoutNumbers));
     }
 
     public static function withoutUppercaseInvalidPasswordProvider(): \Generator
@@ -58,7 +58,7 @@ class DefaultPasswordValidatorTest extends TestCase
      */
     public function given_a_password_without_an_uppercase_the_validator_should_fail($invalidPasswordWithoutUppercase)
     {
-        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutUppercase));
+        self::assertFalse($this->validator->isValid($invalidPasswordWithoutUppercase));
     }
 
     public static function withoutLowercaseInvalidPasswordProvider(): \Generator
@@ -74,7 +74,7 @@ class DefaultPasswordValidatorTest extends TestCase
      */
     public function given_a_password_without_an_lowercase_the_validator_should_fail($invalidPasswordWithoutLowercase)
     {
-        self::assertFalse($this->validator->theMethod($invalidPasswordWithoutLowercase));
+        self::assertFalse($this->validator->isValid($invalidPasswordWithoutLowercase));
     }
 
 
@@ -91,6 +91,6 @@ class DefaultPasswordValidatorTest extends TestCase
      */
     public function given_a_valid_password_the_validator_should_validate_it($validPassword)
     {
-        self::assertFalse($this->validator->theMethod($validPassword));
+        self::assertFalse($this->validator->isValid($validPassword));
     }
 }
